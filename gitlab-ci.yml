@@ -20,16 +20,21 @@ include:
   - template: Security/Dependency-Scanning.gitlab-ci.yml
   - template: Security/Container-Scanning.gitlab-ci.yml
 
+# Політики безпеки - блокування пайплайну при виявленні критичних проблем
 secret_detection:
-  allow_failure: false
+  allow_failure: false  # Блокуємо при виявленні секретів
+  
 sast:
-  allow_failure: false
+  allow_failure: false  # Блокуємо при критичних вразливостях SAST
+  
 unit_test_job:
-  allow_failure: false
+  allow_failure: false  # Блокуємо при падінні тестів
+  
 dependency_scanning:
-  allow_failure: false
+  allow_failure: false  # Блокуємо при критичних CVE в залежностях
+  
 container_scanning:
-  allow_failure: false
+  allow_failure: false  # Блокуємо при вразливостях в контейнері
 
 # =========================================================================
 # ЕТАП: secret-scan
